@@ -35,7 +35,7 @@ The project is structured as follow:
 - micro: Snowplow configuration folder.
 - docker-compose.yml: The docker compose file descriptor of the services.
 
-Version: 2.0.0 - Released: 29th May 2021
+Version: 1.0.1 - Released: 29th May 2021
 
 # How is the tracking embedded?
 
