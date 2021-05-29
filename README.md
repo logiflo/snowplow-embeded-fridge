@@ -10,6 +10,7 @@ Embed Snowplow Micro to Fridge App
 - [What's tracked?](#whats-tracked)
 - [How to build](#how-to-build)
 - [How to run](#how-to-run)
+- [How to see the tracking data](#how-to-see-the-tracking-data)
 - [Requirements](#requirements)
 - [Dependencies](#dependencies)
 - [Future features](#future-features)
@@ -48,7 +49,7 @@ Thanks to Snowplow Micro and its pre-defined events and associated methods for t
 
 # How to build
 
-Once the repo is cloned, it is required to create a file named `.env` at `fridge_web/fridge`. That file must contain the SECRET_KEY and DATABASE_URL; an example can be shown below:
+Once the repo is cloned, it is required to create a file named `.env` at `fridge_web/fridge`. That file must contain the **SECRET_KEY** and **DATABASE_URL**; an example can be shown below:
 
 ```
 SECRET_KEY=j6)1zc)bx230q^!9!@9wmfz6x!+d695iphyx%y-$tf5uf-f7b!
@@ -69,6 +70,17 @@ This will launch two services:
 - my_fridge: The Django service that host the fridge webapp.
 - micro: The snowplow micro service that listens for tracking data from fridge application.
 
+# How to see the tracking data
+
+The tracking data can be seen at the folowing urls:
+- `<webapp_url>/micro/all`:
+Get a summary with the number of good and bad events currently in the cache.
+- `<webapp_url>/micro/good`:
+Query the good events (events that have been successfully validated).
+- `<webapp_url>/micro/bad`: Query the bad events (events that failed validation).
+- `<webapp_url>/micro/reset`: Delete all events from the cache.
+
+More detailed information can be found [here](https://github.com/snowplow-incubator/snowplow-micro).
 # Requirements
 
 - Python 3.6 or above.
