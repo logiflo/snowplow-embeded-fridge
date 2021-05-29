@@ -73,12 +73,12 @@ This will launch two services:
 # How to see the tracking data
 
 The tracking data can be seen at the folowing urls:
-- `<webapp_url>/micro/all`:
+- `<webapp_url>:9090/micro/all`:
 Get a summary with the number of good and bad events currently in the cache.
-- `<webapp_url>/micro/good`:
+- `<webapp_url>:9090/micro/good`:
 Query the good events (events that have been successfully validated).
-- `<webapp_url>/micro/bad`: Query the bad events (events that failed validation).
-- `<webapp_url>/micro/reset`: Delete all events from the cache.
+- `<webapp_url>:9090/micro/bad`: Query the bad events (events that failed validation).
+- `<webapp_url>:9090/micro/reset`: Delete all events from the cache.
 
 More detailed information can be found [here](https://github.com/snowplow-incubator/snowplow-micro).
 # Requirements
