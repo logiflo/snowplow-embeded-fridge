@@ -1,0 +1,28 @@
+version: '3'
+services:
+  micro:
+    container_name: micro
+    image: snowplow/snowplow-micro:1.1.2
+    volumes:
+      - ./micro:/config
+    restart: always
+    ports:
+      - "9090:9090"
+    command: "--collector-config /config/micro.conf --iglu /config/iglu.json"
+
+  migration:
+    build: ./fridge_web
+    volumes:
+      - ./fridge_web:/fridge
+    command: python3 manage.py migrate
+
+  web:
+    container_name: fridge
+    build: ./fridge_web
+    volumes:
+      - ./fridge_web:/fridge
+    ports:
+        - "8000:8000"
+    depends_on:
+      - migration
+    command: python3 manage.py runserver 0.0.0.0:8000
